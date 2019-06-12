@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+<script src="index.js"></script>
+</head>
+
+<body ng-app="practice">
+    <div ng-controller="ctrl1"> 
+        <h2>1.表达式</h2>
+            <p>name: {{firstName + " " + lastName}}</p>
+    </div>
+
+    <div ng-init="quantity=1;price=5">
+        <h2>2.价格计算器</h2>
+            数量：<input type="number" ng-model="quantity">
+            价格：<input type="number" ng-model="price">
+        <p><b>总价：</b>{{ quantity * price }}</p>
+    </div>
+
+    <div ng-controller="ctrl2">
+        <h2>3.使用ng-repeat来循环数组</h2>
+        <ul>
+            <li ng-repeat="n in names">
+            {{n}}
+            </li>
+        </ul>
+    </div>
+
+    <div ng-init="introductions=[
+      {name:'Jani',country:'Norway'},
+      {name:'Hege',country:'Sweden'},
+      {name:'Kai',country:'Denmark'}]"> 
+        <h2>4.ng-repeat数组</h2>
+        <input type='text' ng-model='testFilter'></input>
+        <ul>
+            <li  ng-repeat="n in introductions | filter:testFilter | orderBy:'country'">
+            {{(n.name | uppercase) + " " + n.country}}
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>5.ng-model验证用户输入</h2>
+        <form name="myForm"> 
+            Email:
+            <input type="email" name="myAddress" ng-model="text">
+            <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+        </form>
+    </div>
+
+    <div ng-controller="ctrl3">
+        <h2>6.scope and mvc</h2>
+        <input ng-model="scopeName">
+        <p>{{greeting}}</p>
+        <button ng-click='sayHello()'>点我</button>
+    </div>
+</body>
+</html>
