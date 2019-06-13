@@ -7,11 +7,13 @@
 </head>
 
 <body ng-app="practice">
-    <div ng-controller="ctrl1"> 
+    <!--1.表达式-->
+    <div ng-controller="ctrl1">   
         <h2>1.表达式</h2>
             <p>name: {{firstName + " " + lastName}}</p>
     </div>
 
+    <!--2.价格计算器-->
     <div ng-init="quantity=1;price=5">
         <h2>2.价格计算器</h2>
             数量：<input type="number" ng-model="quantity">
@@ -19,6 +21,7 @@
         <p><b>总价：</b>{{ quantity * price }}</p>
     </div>
 
+    <!--3.使用ng-repeat来循环数组-->
     <div ng-controller="ctrl2">
         <h2>3.使用ng-repeat来循环数组</h2>
         <ul>
@@ -28,6 +31,7 @@
         </ul>
     </div>
 
+    <!--4.ng-repeat数组-->
     <div ng-init="introductions=[
       {name:'Jani',country:'Norway'},
       {name:'Hege',country:'Sweden'},
@@ -41,6 +45,7 @@
         </ul>
     </div>
 
+    <!--5.ng-model验证用户输入-->
     <div>
         <h2>5.ng-model验证用户输入</h2>
         <form name="myForm"> 
@@ -50,11 +55,36 @@
         </form>
     </div>
 
+    <!--6.scope and mvc-->
     <div ng-controller="ctrl3">
         <h2>6.scope and mvc</h2>
         <input ng-model="scopeName">
         <p>{{greeting}}</p>
         <button ng-click='sayHello()'>点我</button>
+    </div>
+
+    <!--7.ng-options单选框-->
+    <div ng-controller="ctrl4">
+        <h2>7.ng-options单选框</h2>
+        <select ng-init="selectedName=names[0]" ng-model="selectedName" ng-options="x for x in names"></select>
+    </div>
+
+    <!--8.ng-repeat单选框-->
+    <div ng-controller="ctrl4">
+        <h2>8.ng-repeat单选框</h2>
+        <select>
+        <option ng-repeat="x in names">{{x}}</option>
+        </select>
+    </div>
+
+    <!--9.ng-options键值对-->
+    <div ng-controller="ctrl5">
+        <h2>9.ng-options键值对</h2>
+        <p>选择一辆车：</p>
+        <select ng-model="selectedCar" ng-options="x for (x,y) in cars"></select>
+        <p>你选择的是：{{selectedCar.brand}}</p>
+        <p>型号为：{{selectedCar.model}}</p>
+        <p>颜色为：{{selectedCar.color}}</p>
     </div>
 </body>
 </html>
