@@ -26,3 +26,12 @@ app.controller('ctrl5', function ($scope) {
         car03: { brand: "Volvo", model: "XC90", color: "black" }
     }
 });
+
+app.controller('ctrl6', function ($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Hu";
+    $scope.myVar = false;
+    $scope.toggle = function () {
+        $scope.myVar = !$scope.myVar;
+    }
+});

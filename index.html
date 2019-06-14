@@ -86,5 +86,72 @@
         <p>型号为：{{selectedCar.model}}</p>
         <p>颜色为：{{selectedCar.color}}</p>
     </div>
+
+    <!--10.ng-disabled-->
+    <div ng-init="mySwitch=true">
+        <h2>10.ng-disabled</h2>
+        <p><button ng-disabled="mySwitch">点我！</button></p>
+        <p><input type="checkbox" ng-model="mySwitch">按钮</input></p>
+        <p>{{mySwitch}}</p>
+    </div>
+
+    <!--11.ng-click-->
+    <div>
+        <h2>11.ng-click</h2>
+        <p><button ng-click="count = count + 1">点我!</button></p>
+        <p>{{count}}</p>
+    </div>
+
+    <!--12.ng-click隐藏/显示-->
+    <div ng-controller="ctrl6">
+        <h2>12.ng-click隐藏/显示</h2>
+        <p><button ng-click="toggle()">隐藏/显示</button></p>
+        <span ng-hide="myVar">
+            <p>名：<input type="text" ng-model="firstName"></input></p>
+            <p>姓：<input type="text" ng-model="lastName"></input></p>
+            <p>姓名：{{firstName+" "+lastName}}</p>
+        </span>
+    </div>
+
+    <!--13.单选框和复选框-->
+    <div>
+        <h2>13.单选框和复选框</h2>
+        <div>
+            <h3>（1）单选框</h3>
+            <form>
+                选择一个选项：
+                <input type="radio" ng-model="myVar" value="dogs">dogs
+                <input type="radio" ng-model="myVar" value="tutorials">Tutorials
+                <input type="radio" ng-model="myVar" value="cats">Cats
+            </form>
+            <div ng-switch="myVar">
+                <div ng-switch-when="dogs">
+                    <h1>dogs</h1>
+                    <p>Welcome to a world of dogs.</p>
+                </div>
+                <div ng-switch-when="tutorials">
+                    <h1>tutorials</h1>
+                    <p>Learn from example.</p>
+                </div>
+                <div ng-switch-when="cats">
+                    <h1>cats</h1>
+                    <p>Read about cats.</p>
+                </div>
+            </div>
+            <h3>（2）复选框</h3>
+            <form>
+                选中复选框，显示标题：
+                <input type="checkbox" ng-model="myVar1" value="dogs">dogs
+                <input type="checkbox" ng-model="myVar2" value="tutorials">Tutorials
+            </form>
+            <h1 ng-show="myVar1">dogs</h1>
+            <h1 ng-show="myVar2">tutorials</h1>
+        </div>
+    </div>
+
+    <!--14.输入验证-->
+    <div>
+        <h2>14.输入验证</h2>
+    </div>
 </body>
 </html>
