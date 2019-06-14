@@ -1,4 +1,5 @@
 var app = angular.module('practice', []);
+
 app.controller('ctrl1', function ($scope) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
@@ -34,4 +35,9 @@ app.controller('ctrl6', function ($scope) {
     $scope.toggle = function () {
         $scope.myVar = !$scope.myVar;
     }
+});
+
+app.controller('ctrl7', function ($scope) {
+    $scope.user="John Doe";
+    $scope.email="Ranran.Lv@elekta.com";
 });

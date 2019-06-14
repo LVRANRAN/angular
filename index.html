@@ -2,37 +2,38 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
 <script src="index.js"></script>
 </head>
 
 <body ng-app="practice">
     <!--1.表达式-->
-    <div ng-controller="ctrl1">   
+    <div ng-controller="ctrl1" class="container">   
         <h2>1.表达式</h2>
             <p>name: {{firstName + " " + lastName}}</p>
-    </div>
+    </div></br>
 
     <!--2.价格计算器-->
-    <div ng-init="quantity=1;price=5">
+    <div ng-init="quantity=1;price=5" class="container">
         <h2>2.价格计算器</h2>
             数量：<input type="number" ng-model="quantity">
             价格：<input type="number" ng-model="price">
         <p><b>总价：</b>{{ quantity * price }}</p>
-    </div>
+    </div></br>
 
     <!--3.使用ng-repeat来循环数组-->
-    <div ng-controller="ctrl2">
+    <div ng-controller="ctrl2" class="container">
         <h2>3.使用ng-repeat来循环数组</h2>
         <ul>
             <li ng-repeat="n in names">
             {{n}}
             </li>
         </ul>
-    </div>
+    </div></br>
 
     <!--4.ng-repeat数组-->
-    <div ng-init="introductions=[
+    <div class="container" ng-init="introductions=[
       {name:'Jani',country:'Norway'},
       {name:'Hege',country:'Sweden'},
       {name:'Kai',country:'Denmark'}]"> 
@@ -43,78 +44,78 @@
             {{(n.name | uppercase) + " " + n.country}}
             </li>
         </ul>
-    </div>
+    </div></br>
 
     <!--5.ng-model验证用户输入-->
-    <div>
+    <div class="container">
         <h2>5.ng-model验证用户输入</h2>
         <form name="myForm"> 
             Email:
             <input type="email" name="myAddress" ng-model="text">
             <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
         </form>
-    </div>
+    </div></br>
 
     <!--6.scope and mvc-->
-    <div ng-controller="ctrl3">
+    <div ng-controller="ctrl3" class="container">
         <h2>6.scope and mvc</h2>
         <input ng-model="scopeName">
         <p>{{greeting}}</p>
-        <button ng-click='sayHello()'>点我</button>
-    </div>
+        <button class="btn btn-success" ng-click='sayHello()'>点我</button>
+    </div></br>
 
     <!--7.ng-options单选框-->
-    <div ng-controller="ctrl4">
+    <div ng-controller="ctrl4" class="container">
         <h2>7.ng-options单选框</h2>
         <select ng-init="selectedName=names[0]" ng-model="selectedName" ng-options="x for x in names"></select>
-    </div>
+    </div></br>
 
     <!--8.ng-repeat单选框-->
-    <div ng-controller="ctrl4">
+    <div ng-controller="ctrl4" class="container">
         <h2>8.ng-repeat单选框</h2>
         <select>
         <option ng-repeat="x in names">{{x}}</option>
         </select>
-    </div>
+    </div></br>
 
     <!--9.ng-options键值对-->
-    <div ng-controller="ctrl5">
+    <div ng-controller="ctrl5" class="container">
         <h2>9.ng-options键值对</h2>
         <p>选择一辆车：</p>
         <select ng-model="selectedCar" ng-options="x for (x,y) in cars"></select>
         <p>你选择的是：{{selectedCar.brand}}</p>
         <p>型号为：{{selectedCar.model}}</p>
         <p>颜色为：{{selectedCar.color}}</p>
-    </div>
+    </div></br>
 
     <!--10.ng-disabled-->
-    <div ng-init="mySwitch=true">
+    <div ng-init="mySwitch=true" class="container">
         <h2>10.ng-disabled</h2>
-        <p><button ng-disabled="mySwitch">点我！</button></p>
+        <p><button class="btn btn-success" ng-disabled="mySwitch">点我！</button></p>
         <p><input type="checkbox" ng-model="mySwitch">按钮</input></p>
         <p>{{mySwitch}}</p>
-    </div>
+    </div></br>
 
     <!--11.ng-click-->
-    <div>
+    <div class="container">
         <h2>11.ng-click</h2>
-        <p><button ng-click="count = count + 1">点我!</button></p>
+        <p><button class="btn btn-success" ng-click="count = count + 1">点我!</button></p>
         <p>{{count}}</p>
-    </div>
+    </div></br>
 
     <!--12.ng-click隐藏/显示-->
-    <div ng-controller="ctrl6">
+    <div ng-controller="ctrl6" class="container">
         <h2>12.ng-click隐藏/显示</h2>
-        <p><button ng-click="toggle()">隐藏/显示</button></p>
+        <p><button class="btn btn-success" ng-click="toggle()">隐藏/显示</button></p>
         <span ng-hide="myVar">
             <p>名：<input type="text" ng-model="firstName"></input></p>
             <p>姓：<input type="text" ng-model="lastName"></input></p>
             <p>姓名：{{firstName+" "+lastName}}</p>
         </span>
-    </div>
+    </div></br>
 
     <!--13.单选框和复选框-->
-    <div>
+    <div class="container">
         <h2>13.单选框和复选框</h2>
         <div>
             <h3>（1）单选框</h3>
@@ -147,11 +148,27 @@
             <h1 ng-show="myVar1">dogs</h1>
             <h1 ng-show="myVar2">tutorials</h1>
         </div>
-    </div>
+    </div></br>
 
     <!--14.输入验证-->
-    <div>
+    <div ng-controller="ctrl7" class="container">
         <h2>14.输入验证</h2>
-    </div>
+        <form name="myForm" novalidate
+            <P>用户名：</P>
+            <input type="text" ng-model="user" name="user" required></input>
+            <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">用户名是必须的</span>
+            </span>
+            <P>邮箱：</P>
+            <input type="email" ng-model="email" name="email" required></input>
+            <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">邮箱是必须的</span>
+                <span ng-show="myForm.email.$error.email">非法的邮箱地址</span>
+            </span>
+            <p>
+                <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid"></input>
+            </p>
+        </form>
+    </div></br>
 </body>
 </html>
